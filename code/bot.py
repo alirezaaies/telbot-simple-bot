@@ -15,6 +15,11 @@ import os
 import telebot
 from telebot import types
 
+# OPTIONAL .env MODE:
+# Uncomment the next import and the matching load_dotenv() call in main() if
+# you prefer to keep BOT_TOKEN in code/.env instead of exporting it manually.
+# from dotenv import load_dotenv
+
 
 def start_reply(first_name: str | None) -> str:
     """Return the welcome message used by the /start command."""
@@ -78,10 +83,14 @@ def create_bot(token: str) -> telebot.TeleBot:
 
 def main() -> None:
     """Read configuration and keep the bot connected to Telegram."""
+    # OPTIONAL .env MODE: uncomment this together with the import near the top.
+    # Existing terminal variables take priority because override is False.
+    # load_dotenv(override=False)
+
     token = os.getenv("BOT_TOKEN")
     if not token:
         raise SystemExit(
-            "BOT_TOKEN is missing. Export it in your terminal, then run bot.py again."
+            "BOT_TOKEN is missing. Export it in your terminal or enable .env loading."
         )
 
     bot = create_bot(token)

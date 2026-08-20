@@ -4,4 +4,6 @@ Open `main.tex` in TeXstudio, select **XeLaTeX** as the compiler, and build twic
 
 The source prefers TeX Gyre Pagella and falls back to DejaVu Serif. It also locates `code/bot.py` whether compilation starts in this directory or at the repository root.
 
-Generated PDFs and LaTeX helper files are intentionally ignored by Git. Share a built PDF through a GitHub Release if needed, while keeping the repository light.
+The small final PDF is included for immediate reading. Temporary LaTeX helper
+files remain ignored by Git. Every content page has a compact clickable social
+footer; the cover provides the same destinations in its author block.

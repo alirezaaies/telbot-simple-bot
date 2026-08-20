@@ -57,20 +57,36 @@ Stop the program with `Ctrl+C`. Run its offline checks with `python -m unittest 
 
 > Never commit or share a real token. If it is exposed, use `/revoke` in BotFather immediately and create a replacement. `.env` is ignored by Git, and `.env.example` contains only a safe placeholder.
 
+### Optional `.env` token method
+
+The terminal method above is the default. If you prefer a local file, copy
+`code/.env.example` to `code/.env`, place the token after `BOT_TOKEN=`, and
+uncomment the two lines marked **OPTIONAL .env MODE** in `code/bot.py`:
+
+```python
+from dotenv import load_dotenv
+```
+
+```python
+load_dotenv(override=False)
+```
+
+`python-dotenv` is included in `requirements.txt`. The `.env` file is ignored by
+Git. If both methods are used, the terminal value takes priority.
+
 ## Repository map
 
 ```text
 telbot-simple-bot/
 ├── code/
 │   ├── bot.py                 # complete, commented bot
-│   ├── requirements.txt       # one pinned runtime dependency
+│   ├── requirements.txt       # TeleBot and optional .env loader
 │   ├── test_bot.py            # four offline reply tests
 │   └── README.md              # code-specific guide
 ├── documentation/
 │   ├── English/               # English XeLaTeX book
 │   ├── Persian/               # Persian XePersian book (RTL)
 │   └── README.md              # documentation build guide
-├── LINKEDIN_POST.md           # ready-to-publish launch caption
 ├── LICENSE
 └── README.md
 ```
@@ -84,13 +100,21 @@ The documentation is written as a styled, chapter-based practical book. Open eit
 
 Compile `main.tex`, not an individual chapter. The Persian edition uses XePersian and prefers `IRANSansX`; it automatically falls back to `B Nazanin`, then `Noto Naskh Arabic`. See the [documentation build guide](documentation/README.md) for the expected TeX packages and troubleshooting.
 
-PDF, AUX, LOG, TOC, SyncTeX, and other generated files are ignored to keep the Git history small. Build them locally. If readers need a ready-made PDF, attach it to a GitHub Release instead of committing repeated build output.
+The two small tutorial PDFs are included for readers who want immediate access.
+AUX, LOG, TOC, SyncTeX, and other temporary LaTeX products remain ignored to
+keep the Git history clean.
 
 ## فارسی — شروع سریع
 
 این مخزن یک آموزش عملی یکسان به دو زبان فارسی و انگلیسی است. ربات با پایتون و کتابخانهٔ `telebot` ساخته می‌شود، به دستورهای `/start` و `/help` پاسخ می‌دهد و متن کاربر را تکرار می‌کند.
 
 برای شروع، وارد پوشهٔ `code` شوید، یک محیط مجازی بسازید، دستور `python -m pip install -r requirements.txt` را اجرا کنید و توکن دریافتی از `@BotFather` را در متغیر `BOT_TOKEN` قرار دهید. سپس با دستور `python bot.py` ربات را روشن کنید. توکن واقعی را هرگز در کد یا گیت ننویسید.
+
+روش پیش‌فرض، تنظیم توکن در ترمینال است. برای استفاده از فایل `.env`، فایل
+`.env.example` را با نام `.env` کپی کنید، توکن را در آن قرار دهید و دو خط
+مشخص‌شده با عبارت `OPTIONAL .env MODE` را در `bot.py` از حالت توضیح خارج کنید.
+اگر هر دو روش فعال باشند، مقدار ترمینال اولویت دارد. فایل `.env` در گیت نادیده
+گرفته می‌شود.
 
 برای مطالعه و ساخت کتاب فارسی، فایل [`documentation/Persian/main.tex`](documentation/Persian/main.tex) را در TeXstudio باز کنید، موتور XeLaTeX را انتخاب کنید و دو بار خروجی بگیرید. کدها در هر دو نسخه دقیقاً یکسان هستند.
 

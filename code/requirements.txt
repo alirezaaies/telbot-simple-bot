@@ -1,3 +1,6 @@
-# The only third-party package required by this project.
-# It provides the `telebot` module used in bot.py.
+# Required: provides the `telebot` module used by the bot.
 pyTelegramBotAPI==4.36.1
+
+# Optional token-file method documented in bot.py and the tutorial.
+# It is installed so readers can enable the two commented .env lines directly.
+python-dotenv==1.2.3

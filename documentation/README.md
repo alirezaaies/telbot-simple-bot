@@ -7,8 +7,9 @@ The English and Persian editions have the same six chapters, complete code, comm
 Install a TeX distribution that includes XeLaTeX and these commonly available packages:
 
 ```text
-fontspec, geometry, xcolor, graphicx, booktabs, enumitem,
-listings, tcolorbox, fancyhdr, titlesec, hyperref, xepersian
+fontspec, geometry, xcolor, graphicx, fontawesome5, eso-pic,
+booktabs, enumitem, listings, tcolorbox, fancyhdr, titlesec,
+hyperref, xepersian
 ```
 
 TeX Live users may need the `texlive-xetex`, `texlive-latex-extra`, and Persian/language collections supplied by their operating system. MiKTeX can install missing packages when prompted. Package names differ between operating systems, so use your distribution's package manager.
@@ -37,4 +38,7 @@ Chapter 4 imports the real `code/bot.py`, so the printed complete code cannot si
 
 ## Generated files
 
-PDFs and LaTeX build products are ignored by Git. This avoids large and noisy commits. Keep local output as needed, or publish the final PDF as a GitHub Release attachment. If a build behaves strangely, delete its generated helper files locally and compile `main.tex` twice again.
+The two small final PDFs are included in this repository for immediate reading.
+Temporary LaTeX products remain ignored to avoid noisy commits. If a build
+behaves strangely, delete its generated helper files locally and compile
+`main.tex` twice again.
