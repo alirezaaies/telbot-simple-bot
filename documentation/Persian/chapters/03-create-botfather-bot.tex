@@ -1,0 +1,64 @@
+\chapter{ساخت ربات با بات‌فادر}
+
+\begin{goalbox}
+حساب ربات تلگرام را بسازید و توکن آن را به‌شکل امن در اختیار پایتون بگذارید.
+\end{goalbox}
+
+\section{درخواست ربات از بات‌فادر}
+
+\begin{enumerate}
+\item در تلگرام حساب تأییدشدهٔ
+\lr{@BotFather}
+را جست‌وجو کنید.
+\item گفت‌وگو را آغاز کنید و دستور
+\lr{/newbot}
+را بفرستید.
+\item یک نام نمایشی وارد کنید؛ برای نمونه
+\lr{Alireza Tutorial Bot}
+مناسب است.
+\item نام کاربری یکتایی وارد کنید که به
+\lr{bot}
+پایان برسد؛ برای نمونه
+\lr{alireza\_tutorial\_123\_bot}
+را امتحان کنید. اگر قبلاً گرفته شده است، نام دیگری بسازید.
+\item بات‌فادر یک توکن می‌دهد. با آن مانند رمز عبور رفتار کنید.
+\end{enumerate}
+
+\begin{warningbox}
+توکن واقعی را در کد، تصویر، پیام یا گیت قرار ندهید. اگر توکن فاش شد، دستور
+\lr{/revoke}
+را برای بات‌فادر بفرستید و توکن تازه‌ای بسازید.
+\end{warningbox}
+
+\section{تنظیم توکن برای یک نشست ترمینال}
+
+مقدار نمونه را با توکنی که از بات‌فادر گرفته‌اید جایگزین کنید.
+
+در مک یا لینوکس:
+\begin{LTR}
+\begin{lstlisting}[language=bash,numbers=none]
+export BOT_TOKEN="paste_your_token_here"
+\end{lstlisting}
+\end{LTR}
+
+در پاورشل ویندوز:
+\begin{LTR}
+\begin{lstlisting}[language={},numbers=none]
+$env:BOT_TOKEN="paste_your_token_here"
+\end{lstlisting}
+\end{LTR}
+
+با بسته‌شدن آن ترمینال، متغیر حذف می‌شود. این روش برای نخستین پروژه ساده و امن
+است. در هر نشست تازه باید آن را دوباره تنظیم کنید.
+
+\begin{checkpointbox}
+فقط وجود متغیر را بررسی کنید و مقدار محرمانهٔ آن را نمایش ندهید.
+\begin{LTR}
+\begin{lstlisting}[language=bash,numbers=none]
+python -c "import os; print('token set' if os.getenv('BOT_TOKEN') else 'missing')"
+\end{lstlisting}
+\end{LTR}
+نتیجهٔ مورد انتظار عبارت
+\lr{token set}
+است.
+\end{checkpointbox}

@@ -1,0 +1,53 @@
+\chapter{Run It and Verify the Result}
+
+\begin{goalbox}
+Start the bot, complete a real Telegram conversation, and run offline checks.
+\end{goalbox}
+
+Confirm that the environment is active and \texttt{BOT\_TOKEN} is set, then run:
+
+\begin{lstlisting}[language=bash,numbers=none]
+python bot.py
+\end{lstlisting}
+
+\begin{resultbox}
+\texttt{Bot is running. Press Ctrl+C to stop it.}
+\end{resultbox}
+
+Leave that terminal open. In Telegram, open the link BotFather gave you or search
+for the username you created. Press \textbf{Start}.
+
+\section{A four-part manual check}
+
+\begin{enumerate}
+\item Send \texttt{/start}. The reply begins with your Telegram first name and
+shows both commands.
+\item Send \texttt{/help}. The reply gives three short usage steps.
+\item Send \texttt{My first bot}. The reply must be
+\texttt{You said: My first bot}.
+\item Send a photo. The reply must be
+\texttt{Please send a text message so I can repeat it.}
+\end{enumerate}
+
+If all four results match, the complete path---Telegram, your token, Python,
+TeleBot, and the handlers---works.
+
+\section{Run the offline tests}
+
+Stop the bot with \texttt{Ctrl+C}, then run:
+
+\begin{lstlisting}[language=bash,numbers=none]
+python -m unittest -v
+\end{lstlisting}
+
+\begin{resultbox}
+Four tests are listed, followed by \texttt{OK}. These checks use no token and do
+not contact Telegram; they verify the reply-building functions.
+\end{resultbox}
+
+Whenever you change a message in \texttt{bot.py}, update its matching test and
+run this command again.
+
+\begin{checkpointbox}
+Your bot answers all four manual checks, and the four offline tests pass.
+\end{checkpointbox}

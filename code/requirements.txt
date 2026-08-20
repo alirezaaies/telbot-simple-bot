@@ -1,0 +1,3 @@
+# The only third-party package required by this project.
+# It provides the `telebot` module used in bot.py.
+pyTelegramBotAPI==4.36.1

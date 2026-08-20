@@ -1,0 +1,54 @@
+\chapter{Meet the Bot We Will Build}
+
+\begin{goalbox}
+Understand the finished result, the few tools involved, and the project layout.
+\end{goalbox}
+
+Our goal is intentionally small: a Telegram bot that is easy to finish and easy
+to understand. It will:
+
+\begin{itemize}
+\item welcome a user who sends \texttt{/start};
+\item explain itself when the user sends \texttt{/help};
+\item reply to ordinary text with \texttt{You said:} followed by that text;
+\item ask for text when it receives a photo, voice note, or similar content.
+\end{itemize}
+
+For example, when Alireza sends \texttt{My first bot}, the conversation is:
+
+\begin{resultbox}
+\textbf{Alireza:} My first bot\\
+\textbf{Bot:} You said: My first bot
+\end{resultbox}
+
+\section{The four pieces}
+
+Telegram shows the conversation. BotFather creates the bot account and gives its
+secret token. Python runs our instructions. The \texttt{pyTelegramBotAPI}
+package provides the \texttt{telebot} module that connects those instructions to
+Telegram. This tutorial uses polling: while the program runs, it regularly asks
+Telegram whether a new message has arrived.
+
+\section{A small, readable layout}
+
+\begin{lstlisting}[language={},numbers=none]
+telbot-simple-bot/
+|-- code/
+|   |-- bot.py
+|   |-- requirements.txt
+|   |-- test_bot.py
+|   `-- README.md
+|-- documentation/
+|   |-- English/
+|   `-- Persian/
+|-- LINKEDIN_POST.md
+`-- README.md
+\end{lstlisting}
+
+Only \texttt{code/bot.py} is needed to run the bot after the dependency is
+installed. The other files teach, test, or document it.
+
+\begin{checkpointbox}
+You know exactly what the finished bot will do. No token, package, or account has
+been changed yet.
+\end{checkpointbox}

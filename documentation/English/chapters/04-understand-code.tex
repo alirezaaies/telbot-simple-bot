@@ -1,0 +1,49 @@
+\chapter{Build and Understand the Bot}
+
+\begin{goalbox}
+Connect the token to TeleBot and understand how each message gets its reply.
+\end{goalbox}
+
+The repository already contains the completed file below. Reading it from top to
+bottom is the fastest way to connect each idea to working code.
+
+\lstinputlisting[language=Python,caption={The complete code in code/bot.py}]{\CodePath/bot.py}
+
+\section{Step 1: import the tools}
+
+\texttt{os} reads the environment variable. \texttt{telebot} creates the client
+that talks to Telegram. \texttt{types} supplies message type hints; these hints
+help readers and editors but do not change the bot's behavior.
+
+\section{Step 2: keep replies easy to test}
+
+The functions \texttt{start\_reply}, \texttt{help\_reply}, and
+\texttt{echo\_reply} only build text. They do not need the network. Separating
+them makes the expected conversation clear and lets the offline tests check it.
+
+\section{Step 3: register handlers}
+
+A \emph{handler} is simply a function chosen for a kind of incoming message.
+The decorators above the functions define the choice:
+
+\begin{itemize}
+\item \texttt{commands=["start"]} handles \texttt{/start};
+\item \texttt{commands=["help"]} handles \texttt{/help};
+\item \texttt{content\_types=["text"]} handles other text;
+\item the final handler covers common non-text messages.
+\end{itemize}
+
+Order matters: command handlers appear before the general text handler, so a
+command receives its special answer.
+
+\section{Step 4: start polling}
+
+\texttt{main} stops with a readable error when \texttt{BOT\_TOKEN} is absent.
+When it exists, \texttt{infinity\_}\allowbreak\texttt{polling} keeps listening until you press
+\texttt{Ctrl+C}. The \texttt{skip\_}\allowbreak\texttt{pending=True} option ignores old messages
+that accumulated while this learning bot was offline.
+
+\begin{checkpointbox}
+You can point to the exact handler used for \texttt{/start}, \texttt{/help}, a
+normal text message, and a photo.
+\end{checkpointbox}

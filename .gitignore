@@ -216,3 +216,24 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local Telegram credentials (never commit bot tokens)
+code/.env
+
+# LaTeX build products (keep only editable .tex sources in Git)
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.xdv
+# documentation/**/*.pdf
+LINKEDIN_POST.md
